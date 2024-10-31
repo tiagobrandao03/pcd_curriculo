@@ -1,0 +1,24 @@
+private function formarObjeto($dados)
+    {
+        return new Curriculo($dados['id'],
+            $dados['nome'],
+            $dados['email'],
+            $dados['contato'],
+            $dados['genero'],
+            $dados['raca'],
+            $dados['estado'],
+            $dados['deficiencia'],
+            $dados['cid'],
+            $dados['limitacao'],
+            $dados['laudo'],
+            $dados['cargo,interesse'],
+            $dados['formacao'],
+            $dados['expectativa_salarial'],
+            $dados['modelo_trabalho'],
+            $dados['regime_trabalho'],
+            $dados['curriculo'],
+            $dados['preferencia_contato'],
+            $dados['redes_sociais'],
+            $dados['criado_em']
+        );
+    }
