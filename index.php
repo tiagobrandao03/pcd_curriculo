@@ -1,4 +1,5 @@
 <?php
+global $pdo;
 require "src/conexao-bd.php";
 require "src/Modelo/Curriculo.php";
 require "src/Repositorio/CurriculoRepositorio.php";
@@ -12,9 +13,11 @@ if (isset($_POST['cadastro'])){
             $_POST['nome'],
             $_POST['email'],
             $_POST['contato'],
+            $_POST['cidade'],
             $_POST['genero'],
             $_POST['raca'],
             $_POST['estado'],
+            $_POST['cidade'],
             $_POST['deficiencia'],
             $_POST['cid'],
             $_POST['limitacao'],
@@ -87,11 +90,11 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label class="form-label" for="estado">Estado</label>
-                <input type="text" class="form-control" name="estado" id="estado" >
+                <input type="text" class="form-control" name="estado" id="estado">
             </div>
             <div class="col">
                 <label  class="form-label" for="cidade">Cidade</label>
-                <input type="text" class="form-control" name="cidade" id="cidade" >
+                <input type="text" class="form-control" name="cidade" id="cidade">
             </div>
             <div class="col">
                 <label  class="form-label" for="deficiencia">Deficiencia</label>
