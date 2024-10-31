@@ -22,11 +22,11 @@ if (isset($_POST['cadastro'])){
             $_POST['cargo'],
             $_POST['interesse'],
             $_POST['formacao'],
-            $_POST['expectativasalarial'],
-            $_POST['modelotrabalho'],
-            $_POST['regimetrabalho'],
-            $_POST['preferenciacontato'],
-            $_POST['redessociais']
+            $_POST['expectativa_salarial'],
+            $_POST['modelo_trabalho'],
+            $_POST['regime_trabalho'],
+            $_POST['preferencia_contato'],
+            $_POST['redes_sociais']
 
     );
 
@@ -53,11 +53,11 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label  for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="nome">
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="nome">
             </div>
             <div class="col">
                 <label  class="form-label" for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="email@email.com">
+                <input type="email" class="form-control" name="email" id="email" placeholder="email@email.com">
             </div>
         </div>
     </li>
@@ -66,19 +66,19 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label  class="form-label" for="contato">Contato</label>
-                <input type="text" class="form-control" id="contato" >
+                <input type="text" class="form-control" name="contato" id="contato" >
             </div>
             <div class="col">
                 <label  class="form-label" for="idade">Idade</label>
-                <input type="text" class="form-control" id="idade" >
+                <input type="text" class="form-control" name="idade" id="idade" >
             </div>
             <div class="col">
                 <label  class="form-label" for="genero">Genero </label>
-                <input type="text" class="form-control" id="genero" >
+                <input type="text" class="form-control" name="genero" id="genero" >
             </div>
             <div class="col">
                 <label  class="form-label" for="raca">Raça</label>
-                <input type="text" class="form-control" id="raca" >
+                <input type="text" class="form-control" name="raca" id="raca" >
             </div>
         </div>
     </li>
@@ -87,19 +87,19 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label class="form-label" for="estado">Estado</label>
-                <input type="text" class="form-control" id="estado" >
+                <input type="text" class="form-control" name="estado" id="estado" >
             </div>
             <div class="col">
                 <label  class="form-label" for="cidade">Cidade</label>
-                <input type="text" class="form-control" id="cidade" >
+                <input type="text" class="form-control" name="cidade" id="cidade" >
             </div>
             <div class="col">
                 <label  class="form-label" for="deficiencia">Deficiencia</label>
-                <input type="text" class="form-control" id="deficiencia" placeholder="Deficiencia">
+                <input type="text" class="form-control" name="deficiencia" id="deficiencia" placeholder="Deficiencia">
             </div>
             <div class="col">
                 <label  class="form-label" for="cid">Cid</label>
-                <input type="text" class="form-control" id="cid" placeholder="Cid">
+                <input type="text" class="form-control" name="cid" id="cid" placeholder="Cid">
             </div>
         </div>
     </li>
@@ -107,15 +107,15 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label class="form-label" for="limitacao">Limitação</label>
-                <input type="text" class="form-control" id="limitacao" >
+                <input type="text" class="form-control" name="limitacao" id="limitacao" >
             </div>
             <div class="col">
                 <label  class="form-label" for="laudo">Laudo Médico</label>
-                <input type="text" class="form-control" id="laudo"  >
+                <input type="text" class="form-control" name="laudo" id="laudo"  >
             </div>
             <div class="col">
                 <label  class="form-label" for="cargo">Cargo</label>
-                <input type="text" class="form-control" id="cargo"  >
+                <input type="text" class="form-control" name="cargo" id="cargo"  >
             </div>
         </div>
     </li>
@@ -124,11 +124,11 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label  class="form-label" for="interesse">Interesse</label>
-                <input type="text" class="form-control" id="interesse" >
+                <input type="text" class="form-control" name="interesse" id="interesse" >
             </div>
             <div class="col">
                 <label  class="form-label" for="formacao">Formação</label>
-                <input type="text" class="form-control" id="formacao" >
+                <input type="text" class="form-control" name="formacao" id="formacao" >
             </div>
         </div>
     </li>
@@ -136,15 +136,15 @@ if (isset($_POST['cadastro'])){
             <!--nome e email-->
             <div class="col">
                 <label  class="form-label" for="expectativa_salarial">Expectativa Salarial</label>
-                <input type="text" class="form-control" id="expectativasalarial" >
+                <input type="text" class="form-control" name="expectativa_salarial" id="expectativa_salarial" >
             </div>
             <div class="col">
                 <label  class="form-label" for="modelo_trabalho">Modelo de Trabalho</label>
-                <input type="text" class="form-control" id="modelotrabalho" >
+                <input type="text" class="form-control" name="modelo_trabalho" id="modelo_trabalho" >
             </div>
             <div class="col">
                 <label  class="form-label" for="regime_trabalho">Regime de Trabalho</label>
-                <input type="text" class="form-control" id="regimetrabalho" >
+                <input type="text" class="form-control" name="regime_trabalho" id="regime_trabalho" >
             </div>
         </div>
     </li>
@@ -163,11 +163,11 @@ if (isset($_POST['cadastro'])){
         <div class="row">
             <div class="col">
                 <label  class="form-label" for="preferencia_contato">Preferencia de Contato</label>
-                <input type="name" class="form-control" id="preferenciacontato" >
+                <input type="name" class="form-control" name="preferencia_contato" id="preferencia_contato" >
             </div>
             <div class="col">
                 <label  class="form-label" for="redes_sociais">Redes Sociais</label>
-                <input type="Name" class="form-control" id="redessociais" >
+                <input type="Name" class="form-control" name="redes_sociais" id="redes_sociais" >
             </div>
         </div>
     </li>

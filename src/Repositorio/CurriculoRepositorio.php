@@ -64,12 +64,12 @@ class CurriculoRepositorio
         $statement->bindValue(13,$curriculo->getCargo());
         $statement->bindValue(14,$curriculo->getInteresse());
         $statement->bindValue(15,$curriculo->getFormacao());
-        $statement->bindValue(16,$curriculo->getExpectativaSalarial());
-        $statement->bindValue(17,$curriculo->getModeloTrabalho());
-        $statement->bindValue(18,$curriculo->getRegimeTrabalho());
+        $statement->bindValue(16,$curriculo->getExpectativa_Salarial());
+        $statement->bindValue(17,$curriculo->getModelo_Trabalho());
+        $statement->bindValue(18,$curriculo->getRegime_Trabalho());
         //$statement->bindValue(19,$curriculo->getCurriculo());
-        $statement->bindValue(20,$curriculo->getPreferenciaContato());
-        $statement->bindValue(21,$curriculo->getRedesSociais());
+        $statement->bindValue(20,$curriculo->getPreferencia_Contato());
+        $statement->bindValue(21,$curriculo->getRedes_Sociais());
        // $statement->bindValue(22,$curriculo->getCriadoEm());
         $statement->execute();
     }

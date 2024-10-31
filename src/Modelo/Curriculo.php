@@ -20,12 +20,12 @@ class Curriculo
     private string $cargo;
     private string $interesse;
     private string $formacao;
-    private string $expectativasalarial;
-    private string $modelotrabalho;
-    private string $regimetrabalho;
+    private string $expectativa_salarial;
+    private string $modelo_trabalho;
+    private string $regime_trabalho;
 
-    private string $preferenciacontato;
-    private string $redessociais;
+    private string $preferencia_contato;
+    private string $redes_sociais;
 
 
     /**
@@ -45,13 +45,13 @@ class Curriculo
      * @param string $cargo
      * @param string $interesse
      * @param string $formacao
-     * @param string $expectativasalarial
-     * @param string $modelotrabalho
-     * @param string $regimetrabalho
-     * @param string $preferenciacontato
-     * @param string $redessociais
+     * @param string $expectativa_salarial
+     * @param string $modelo_trabalho
+     * @param string $regime_trabalho
+     * @param string $preferencia_contato
+     * @param string $redes_sociais
      */
-    public function __construct(?int $id, string $nome, string $email, string $contato, string $idade, string $genero, string $raca, string $estado, string $cidade, string $deficiencia, string $cid, string $limitacao, string $laudo, string $cargo, string $interesse, string $formacao, string $expectativasalarial, string $modelotrabalho, string $regimetrabalho, string $preferenciacontato, string $redessociais)
+    public function __construct(?int $id, string $nome, string $email, string $contato, string $idade, string $genero, string $raca, string $estado, string $cidade, string $deficiencia, string $cid, string $limitacao, string $laudo, string $cargo, string $interesse, string $formacao, string $expectativa_salarial, string $modelo_trabalho, string $regime_trabalho, string $preferencia_contato, string $redes_sociais)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -69,11 +69,11 @@ class Curriculo
         $this->cargo = $cargo;
         $this->interesse = $interesse;
         $this->formacao = $formacao;
-        $this->expectativasalarial = $expectativasalarial;
-        $this->modelotrabalho = $modelotrabalho;
-        $this->regimetrabalho = $regimetrabalho;
-        $this->preferenciacontato = $preferenciacontato;
-        $this->redessociais = $redessociais;
+        $this->expectativa_salarial = $expectativa_salarial;
+        $this->modelo_trabalho = $modelo_trabalho;
+        $this->regime_trabalho = $regime_trabalho;
+        $this->preferencia_contato = $preferencia_contato;
+        $this->redes_sociais = $redes_sociais;
     }
 
     public function getId(): ?int
@@ -156,27 +156,27 @@ class Curriculo
         return $this->formacao;
     }
 
-    public function getExpectativaSalarial(): string
+    public function getExpectativa_Salarial(): string
     {
         return $this->expectativa_salarial;
     }
 
-    public function getModeloTrabalho(): string
+    public function getModelo_Trabalho(): string
     {
         return $this->modelo_trabalho;
     }
 
-    public function getRegimeTrabalho(): string
+    public function getRegime_Trabalho(): string
     {
         return $this->regime_trabalho;
     }
 
-    public function getPreferenciaContato(): string
+    public function getPreferencia_Contato(): string
     {
         return $this->preferencia_contato;
     }
 
-    public function getRedesSociais(): string
+    public function getRedes_Sociais(): string
     {
         return $this->redes_sociais;
     }
@@ -261,27 +261,27 @@ class Curriculo
         $this->formacao = $formacao;
     }
 
-    public function setExpectativaSalarial(string $expectativa_salarial): void
+    public function setExpectativa_Salarial(string $expectativa_salarial): void
     {
         $this->expectativa_salarial = $expectativa_salarial;
     }
 
-    public function setModeloTrabalho(string $modelo_trabalho): void
+    public function setModelo_Trabalho(string $modelo_trabalho): void
     {
         $this->modelo_trabalho = $modelo_trabalho;
     }
 
-    public function setRegimeTrabalho(string $regime_trabalho): void
+    public function setRegime_Trabalho(string $regime_trabalho): void
     {
         $this->regime_trabalho = $regime_trabalho;
     }
 
-    public function setPreferenciaContato(string $preferencia_contato): void
+    public function setPreferencia_Contato(string $preferencia_contato): void
     {
         $this->preferencia_contato = $preferencia_contato;
     }
 
-    public function setRedesSociais(string $redes_sociais): void
+    public function setRedes_Sociais(string $redes_sociais): void
     {
         $this->redes_sociais = $redes_sociais;
     }
