@@ -6,12 +6,12 @@ use Modelo\Curriculo;
 
 class CurriculoRepositorio
 {
-    private PDO $pdo;
+    private \PDO $pdo;
 
     /**
      * @param PDO $pdo
      */
-    public function __construct(PDO $pdo)
+    public function __construct(\PDO $pdo)
     {
         $this->pdo = $pdo;
     }
@@ -34,25 +34,25 @@ class CurriculoRepositorio
      * getCargo()
      * getInteresse()
      * getFormacao()
-     * getExpectativaSalarial()
-     * getModeloTrabalho()
-     * getRegimeTrabalho()
+     * getExpectativa_Salarial()
+     * getModelo_Trabalho()
+     * getRegime_Trabalho()
      * getCurriculo()
-     * getPreferenciaContato()
-     * getRedesSociais()
-     * getCriadoEm()
+     * getPreferencia_Contato()
+     * getRedes_Sociais()
+     * getCriado_Em()
      */
     public function salvar(Curriculo $curriculo)
     {
         //:nome,:email,:contato,:idade,:genero,:raca,:estado,:cidade,:deficiencia,:cid,:limitacao,:laudo,:cargo,:interesse,
         //        :formacao,:expectativa_salarial,:modelo_trabalho,:regime_trabalho,:preferencia_contato,:redes_sociais
 
-        $sql = "INSERT INTO curriculo (nome,email,contato,idade,genero,raca,estado,cidade,deficiencia,cid,limitacao,laudo,cargo,interesse,formacao,expectativa_salarial,modelo_trabalho,regime_trabalho,preferencia_contato,redes_sociais) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO curriculo (nome,email,contato,idade,genero,raca,estado,cidade,deficiencia,cid,limitacao,laudo,cargo,interesse,formacao,expectativa_salarial,modelo_trabalho,regime_trabalho,preferencia_contato,redes_sociais,criado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(1,$curriculo->getNome());
         $statement->bindValue(2,$curriculo->getEmail());
         $statement->bindValue(3,$curriculo->getContato());
-        $statement->bindValue(4,$curriculo->getCidade());
+        $statement->bindValue(4,$curriculo->getIdade());
         $statement->bindValue(5,$curriculo->getGenero());
         $statement->bindValue(6,$curriculo->getRaca());
         $statement->bindValue(7,$curriculo->getEstado());
@@ -67,10 +67,9 @@ class CurriculoRepositorio
         $statement->bindValue(16,$curriculo->getExpectativa_Salarial());
         $statement->bindValue(17,$curriculo->getModelo_Trabalho());
         $statement->bindValue(18,$curriculo->getRegime_Trabalho());
-        //$statement->bindValue(19,$curriculo->getCurriculo());
-        $statement->bindValue(20,$curriculo->getPreferencia_Contato());
-        $statement->bindValue(21,$curriculo->getRedes_Sociais());
-       // $statement->bindValue(22,$curriculo->getCriadoEm());
+        $statement->bindValue(19,$curriculo->getPreferencia_Contato());
+        $statement->bindValue(20,$curriculo->getRedes_Sociais());
+        $statement->bindValue(21,$curriculo->getCriadoEm());
         $statement->execute();
     }
 

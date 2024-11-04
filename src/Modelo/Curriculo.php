@@ -23,9 +23,9 @@ class Curriculo
     private string $expectativa_salarial;
     private string $modelo_trabalho;
     private string $regime_trabalho;
-
     private string $preferencia_contato;
     private string $redes_sociais;
+    private \DateTime $criado_em;
 
 
     /**
@@ -50,8 +50,13 @@ class Curriculo
      * @param string $regime_trabalho
      * @param string $preferencia_contato
      * @param string $redes_sociais
+     * @param \DateTime $criado_em
      */
-    public function __construct(?int $id, string $nome, string $email, string $contato, string $idade, string $genero, string $raca, string $estado, string $cidade, string $deficiencia, string $cid, string $limitacao, string $laudo, string $cargo, string $interesse, string $formacao, string $expectativa_salarial, string $modelo_trabalho, string $regime_trabalho, string $preferencia_contato, string $redes_sociais)
+    public function __construct(?int   $id, string $nome, string $email, string $contato, string $idade, string
+                                       $genero, string $raca, string $estado, string $cidade, string $deficiencia, string $cid, string $limitacao,
+                                       string $laudo, string $cargo, string $interesse, string $formacao, string
+                                       $expectativa_salarial, string $modelo_trabalho, string $regime_trabalho, string
+                                       $preferencia_contato, string $redes_sociais, \DateTime $criado_em)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -74,6 +79,7 @@ class Curriculo
         $this->regime_trabalho = $regime_trabalho;
         $this->preferencia_contato = $preferencia_contato;
         $this->redes_sociais = $redes_sociais;
+        $this->criado_em = $criado_em;
     }
 
     public function getId(): ?int
@@ -180,6 +186,10 @@ class Curriculo
     {
         return $this->redes_sociais;
     }
+    public function getCriadoEm(): \DateTime
+    {
+        return $this->criado_em;
+    }
 
     public function setId(?int $id): void
     {
@@ -284,6 +294,13 @@ class Curriculo
     public function setRedes_Sociais(string $redes_sociais): void
     {
         $this->redes_sociais = $redes_sociais;
+    }
+
+
+
+    public function setCriadoEm(\DateTime $criado_em): void
+    {
+        $this->criado_em = $criado_em;
     }
 
 

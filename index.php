@@ -9,27 +9,28 @@ use Repositorio\CurriculoRepositorio;
 
 if (isset($_POST['cadastro'])){
     $curriculo = new Curriculo(
-            null,
-            $_POST['nome'],
-            $_POST['email'],
-            $_POST['contato'],
-            $_POST['cidade'],
-            $_POST['genero'],
-            $_POST['raca'],
-            $_POST['estado'],
-            $_POST['cidade'],
-            $_POST['deficiencia'],
-            $_POST['cid'],
-            $_POST['limitacao'],
-            $_POST['laudo'],
-            $_POST['cargo'],
-            $_POST['interesse'],
-            $_POST['formacao'],
-            $_POST['expectativa_salarial'],
-            $_POST['modelo_trabalho'],
-            $_POST['regime_trabalho'],
-            $_POST['preferencia_contato'],
-            $_POST['redes_sociais']
+        null,
+        $_POST['nome'],
+        $_POST['email'],
+        $_POST['contato'],
+        $_POST['idade'],
+        $_POST['genero'],
+        $_POST['raca'],
+        $_POST['estado'],
+        $_POST['cidade'],
+        $_POST['deficiencia'],
+        $_POST['cid'],
+        $_POST['limitacao'],
+        $_POST['laudo'],
+        $_POST['cargo'],
+        $_POST['interesse'],
+        $_POST['formacao'],
+        $_POST['expectativa_salarial'],
+        $_POST['modelo_trabalho'],
+        $_POST['regime_trabalho'],
+        $_POST['preferencia_contato'],
+        $_POST['redes_sociais'],
+        $_POST['criado_em']
 
     );
 
@@ -175,11 +176,11 @@ if (isset($_POST['cadastro'])){
         </div>
     </li>
     <li>
-        <!--  <div class="col">
-             <label for="birthdaytime">Criado em</label>
-             <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+         <div class="col">
+             <label for="criado_em">Criado em</label>
+             <input type="datetime-local" id="criado_em" name="criado_em">
 
-         </div>-->
+         </div>
 
  </li>
  <li><div class="row">
