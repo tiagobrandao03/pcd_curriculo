@@ -1,15 +1,20 @@
 <?php
 
-namespace Modelo;
+$other_db_name = "bdpcdforms";
+$other_db_user = "bdpcdforms";
+$other_db_password = "Bdpcdforms123@";
+$other_db_host = "bdpcdforms.mysql.dbaas.com.br";
+
+$other_db = new wpdb($other_db_user, $other_db_password, $other_db_name, $other_db_host);
+$other_db->set_prefix("wp_");
 
 class Curriculo
 {
+
     private ?int $id;
     private string $nome;
     private string $email;
     private string $contato;
-    private string $idade;
-    private string $genero;
     private string $raca;
     private string $estado;
     private string $cidade;
@@ -21,42 +26,12 @@ class Curriculo
     private string $interesse;
     private string $formacao;
     private string $expectativa_salarial;
-    private string $modelo_trabalho;
-    private string $regime_trabalho;
+    private string $curriculo;
     private string $preferencia_contato;
     private string $redes_sociais;
-    private \DateTime $criado_em;
 
-
-    /**
-     * @param int|null $id
-     * @param string $nome
-     * @param string $email
-     * @param string $contato
-     * @param string $idade
-     * @param string $genero
-     * @param string $raca
-     * @param string $estado
-     * @param string $cidade
-     * @param string $deficiencia
-     * @param string $cid
-     * @param string $limitacao
-     * @param string $laudo
-     * @param string $cargo
-     * @param string $interesse
-     * @param string $formacao
-     * @param string $expectativa_salarial
-     * @param string $modelo_trabalho
-     * @param string $regime_trabalho
-     * @param string $preferencia_contato
-     * @param string $redes_sociais
-     * @param \DateTime $criado_em
-     */
-    public function __construct(?int   $id, string $nome, string $email, string $contato, string $idade, string
-                                       $genero, string $raca, string $estado, string $cidade, string $deficiencia, string $cid, string $limitacao,
-                                       string $laudo, string $cargo, string $interesse, string $formacao, string
-                                       $expectativa_salarial, string $modelo_trabalho, string $regime_trabalho, string
-                                       $preferencia_contato, string $redes_sociais, \DateTime $criado_em)
+    public function __construct(?int   $id, string $nome, string $email, string $contato, string $idade, string $genero, string $raca, string $estado, string $cidade, string $deficiencia, string $cid, string $limitacao,
+                                string $laudo, string $cargo, string $interesse, string $formacao, string $expectativa_salarial, string $modelo_trabalho, string $regime_trabalho, string $preferencia_contato, string $redes_sociais, \DateTime $criado_em)
     {
         $this->id = $id;
         $this->nome = $nome;
@@ -186,6 +161,7 @@ class Curriculo
     {
         return $this->redes_sociais;
     }
+
     public function getCriado_Em(): \DateTime
     {
         return $this->criado_em;
@@ -297,39 +273,84 @@ class Curriculo
     }
 
 
-
     public function setCriado_Em(\DateTime $criado_em): void
     {
         $this->criado_em = $criado_em;
     }
 
+}
+
+class CurriculoRepositorio
+{
+    private $wpdb;
 
     /**
-     * @param int|null $id
-     * @param string $nome
-     * @param string $email
-     * @param int $contato
-     * @param string $idade
-     * @param string $genero
-     * @param string $raca
-     * @param string $estado
-     * @param string $cidade
-     * @param string $deficiencia
-     * @param string $cid
-     * @param string $limitacao
-     * @param string $laudo
-     * @param string $cargo
-     * @param string $interesse
-     * @param string $formacao
-     * @param string $expectativa_salarial
-     * @param string $modelo_trabalho
-     * @param string $regime_trabalho
-     * @param string $curriculo
-     * @param string $preferencia_contato
-     * @param string $redes_sociais
-     * @param int|null $criado_em
+     * @param PDO $pdo
      */
+    public function __construct($wpdb)
+    {
+        $this->wpdb = $wpdb;
+    }
 
+    public function salvar(Curriculo $curriculo)
+    {
+        $sql = "INSERT INTO curriculo (nome,email,contato,idade,genero,raca,estado,cidade,deficiencia,cid,limitacao,laudo,cargo,interesse,formacao,expectativa_salarial,modelo_trabalho,regime_trabalho,preferencia_contato,redes_sociais,criado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $statement = $this->pdo->prepare($sql);
+        $statement->bindValue(1, $curriculo->getNome());
+        $statement->bindValue(2, $curriculo->getEmail());
+        $statement->bindValue(3, $curriculo->getContato());
+        $statement->bindValue(4, $curriculo->getIdade());
+        $statement->bindValue(5, $curriculo->getGenero());
+        $statement->bindValue(6, $curriculo->getRaca());
+        $statement->bindValue(7, $curriculo->getEstado());
+        $statement->bindValue(8, $curriculo->getCidade());
+        $statement->bindValue(9, $curriculo->getDeficiencia());
+        $statement->bindValue(10, $curriculo->getCid());
+        $statement->bindValue(11, $curriculo->getLimitacao());
+        $statement->bindValue(12, $curriculo->getLaudo());
+        $statement->bindValue(13, $curriculo->getCargo());
+        $statement->bindValue(14, $curriculo->getInteresse());
+        $statement->bindValue(15, $curriculo->getFormacao());
+        $statement->bindValue(16, $curriculo->getExpectativa_Salarial());
+        $statement->bindValue(17, $curriculo->getModelo_Trabalho());
+        $statement->bindValue(18, $curriculo->getRegime_Trabalho());
+        $statement->bindValue(19, $curriculo->getPreferencia_Contato());
+        $statement->bindValue(20, $curriculo->getRedes_Sociais());
+        $statement->bindValue(21, $curriculo->getCriado_Em()->format('Y-m-d H:i:s'));
+        $statement->execute();
+    }
+}
 
+if (isset($_POST['cadastro'])) {
+    $dataString = $_POST['criado_em'];
+    $data = new DateTime($_POST['criado_em']);
+
+    $curriculo = new Curriculo(
+        null,
+        $_POST['nome'],
+        $_POST['email'],
+        $_POST['contato'],
+        $_POST['idade'],
+        $_POST['genero'],
+        $_POST['raca'],
+        $_POST['estado'],
+        $_POST['cidade'],
+        $_POST['deficiencia'],
+        $_POST['cid'],
+        $_POST['limitacao'],
+        $_POST['laudo'],
+        $_POST['cargo'],
+        $_POST['interesse'],
+        $_POST['formacao'],
+        $_POST['expectativa_salarial'],
+        $_POST['modelo_trabalho'],
+        $_POST['regime_trabalho'],
+        $_POST['preferencia_contato'],
+        $_POST['redes_sociais'],
+        $data
+    );
+
+    $curriculoRepositorio = new CurriculoRepositorio($wpdb);
+    $curriculoRepositorio->salvar($curriculo);
 
 }

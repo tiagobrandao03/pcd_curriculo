@@ -47,7 +47,7 @@ class CurriculoRepositorio
         //:nome,:email,:contato,:idade,:genero,:raca,:estado,:cidade,:deficiencia,:cid,:limitacao,:laudo,:cargo,:interesse,
         //        :formacao,:expectativa_salarial,:modelo_trabalho,:regime_trabalho,:preferencia_contato,:redes_sociais
 
-        $sql = "INSERT INTO curriculo (nome,email,contato,idade,genero,raca,estado,cidade,deficiencia,cid,limitacao,laudo,cargo,interesse,formacao,expectativa_salarial,modelo_trabalho,regime_trabalho,preferencia_contato,redes_sociais,criado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO curriculo (nome,email,contato,idade,genero,raca,estado,cidade,deficiencia,cid,limitacao,laudo,cargo,interesse,formacao,expectativa_salarial,modelo_trabalho,regime_trabalho,preferencia_contato,redes_sociais,criado_em) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $statement = $this->pdo->prepare($sql);
         $statement->bindValue(1,$curriculo->getNome());
         $statement->bindValue(2,$curriculo->getEmail());
@@ -69,7 +69,7 @@ class CurriculoRepositorio
         $statement->bindValue(18,$curriculo->getRegime_Trabalho());
         $statement->bindValue(19,$curriculo->getPreferencia_Contato());
         $statement->bindValue(20,$curriculo->getRedes_Sociais());
-        $statement->bindValue(21,$curriculo->getCriadoEm());
+        $statement->bindValue(21, $curriculo->getCriado_Em()->format('Y-m-d H:i:s'));
         $statement->execute();
     }
 

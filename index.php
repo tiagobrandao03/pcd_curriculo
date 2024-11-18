@@ -8,6 +8,9 @@ use Modelo\Curriculo;
 use Repositorio\CurriculoRepositorio;
 
 if (isset($_POST['cadastro'])){
+    $dataString = $_POST['criado_em'];
+    $data = new DateTime($_POST['criado_em']);
+
     $curriculo = new Curriculo(
         null,
         $_POST['nome'],
@@ -30,14 +33,11 @@ if (isset($_POST['cadastro'])){
         $_POST['regime_trabalho'],
         $_POST['preferencia_contato'],
         $_POST['redes_sociais'],
-        $_POST['criado_em']
-
+        $data
     );
 
     $curriculoRepositorio = new CurriculoRepositorio($pdo);
     $curriculoRepositorio->salvar($curriculo);
-
-
 }
 ?>
 <!DOCTYPE html>
